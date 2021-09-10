@@ -1,13 +1,11 @@
 package com.ti.sistemareservaturnos.service;
-
-import com.ti.sistemareservaturnos.dao.IDao;
 import com.ti.sistemareservaturnos.model.Turno;
+import com.ti.sistemareservaturnos.repository.IDao;
 
 import java.util.List;
 import java.util.Optional;
 
 public class TurnoService {
-
     private IDao<Turno> turnoRepository;
 
     public TurnoService(IDao<Turno> turnoRepository) {
@@ -29,5 +27,4 @@ public class TurnoService {
     public Optional<Turno> buscar(Integer id){
         return turnoRepository.buscar(id);
     }
-
 }

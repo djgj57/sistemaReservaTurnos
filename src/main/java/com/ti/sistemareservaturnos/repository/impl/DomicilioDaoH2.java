@@ -1,9 +1,8 @@
-package com.ti.sistemareservaturnos.dao.impl;
+package com.ti.sistemareservaturnos.repository.impl;
 
-
-import com.ti.sistemareservaturnos.dao.IDao;
-import com.ti.sistemareservaturnos.dao.configuracion.ConfiguracionJDBC;
 import com.ti.sistemareservaturnos.model.Domicilio;
+import com.ti.sistemareservaturnos.repository.IDao;
+import com.ti.sistemareservaturnos.repository.configuracion.ConfiguracionJDBC;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -29,9 +28,9 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
         try {
             stmt = connection.createStatement();
             stmt.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
-            ResultSet keys = stmt.getGeneratedKeys();
-            if(keys.next())
-                domicilio.setId(keys.getInt(1));
+           ResultSet keys = stmt.getGeneratedKeys();
+           if(keys.next())
+               domicilio.setId(keys.getInt(1));
             stmt.close();
             connection.close();
         } catch (SQLException throwables) {

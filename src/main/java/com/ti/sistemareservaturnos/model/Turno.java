@@ -1,5 +1,4 @@
 package com.ti.sistemareservaturnos.model;
-
 import java.util.Date;
 
 public class Turno {

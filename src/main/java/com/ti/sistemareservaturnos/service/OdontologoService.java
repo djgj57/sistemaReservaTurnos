@@ -1,12 +1,10 @@
 package com.ti.sistemareservaturnos.service;
 
-
-import com.ti.sistemareservaturnos.dao.IDao;
 import com.ti.sistemareservaturnos.model.Odontologo;
-import org.springframework.stereotype.Service;
+import com.ti.sistemareservaturnos.repository.IDao;
+
 import java.util.List;
 import java.util.Optional;
-
 
 public class OdontologoService {
     private IDao<Odontologo> odontologoDao;

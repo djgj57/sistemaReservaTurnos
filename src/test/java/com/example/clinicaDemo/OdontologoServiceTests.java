@@ -1,8 +1,7 @@
-package com.ti.sistemareservaturnos;
+package com.example.clinicaDemo;
 
-
-import com.ti.sistemareservaturnos.dao.configuracion.ConfiguracionJDBC;
-import com.ti.sistemareservaturnos.dao.impl.OdontologoDaoH2;
+import com.ti.sistemareservaturnos.repository.configuracion.ConfiguracionJDBC;
+import com.ti.sistemareservaturnos.repository.impl.OdontologoDaoH2;
 import com.ti.sistemareservaturnos.model.Odontologo;
 import com.ti.sistemareservaturnos.service.OdontologoService;
 import org.junit.Assert;

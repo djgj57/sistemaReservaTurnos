@@ -3,14 +3,14 @@ $(document).ready(function(){
         evt.preventDefault();
         try {
             let odontologoId = $("#odontologo_id").val();
-
-            let formData = {
-                id: $("#odontologo_id").val(),
-                nombre : $("#nombre").val(),
-                apellido :  $("#apellido").val(),
-                matricula: $("#matricula").val(),
-            }
-
+            
+        let formData = {
+            id: $("#odontologo_id").val(),
+            nombre : $("#nombre").val(),
+            apellido :  $("#apellido").val(),
+            matricula: $("#matricula").val(),
+        }
+            
             $.ajax({
                 url: '/odontologos',
                 type: 'PUT',
@@ -21,12 +21,12 @@ $(document).ready(function(){
                 cache: false,
                 success: function (response) {
                     let odontologo = response;
+        
+                    let successAlert = '<div class="alert alert-success alert-dismissible">' + 
+                                            '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                                            '<strong> odontologo actualizado </strong></div>'
 
-                    let successAlert = '<div class="alert alert-success alert-dismissible">' +
-                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                        '<strong> odontologo actualizado </strong></div>'
-
-
+                 
                     $("#tr_" + odontologoId + " td.td_first_name").text(odontologo.nombre.toUpperCase());
                     $("#tr_" + odontologoId + " td.td_last_name").text(odontologo.apellido.toUpperCase());
                     $("#tr_" + odontologoId + " td.td_matricula").text(odontologo.matricula);
@@ -37,11 +37,11 @@ $(document).ready(function(){
                 },
 
                 error: function (response) {
-                    let errorAlert = '<div class="alert alert-danger alert-dismissible">' +
-                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                        '<strong> Error </strong></div>';
+                    let errorAlert = '<div class="alert alert-danger alert-dismissible">' + 
+                                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                                        '<strong> Error </strong></div>';
 
-                    $("#response").empty();
+                    $("#response").empty();                                    
                     $("#response").append(errorAlert);
                     $("#response").css({"display": "block"});
                 }
@@ -55,12 +55,12 @@ $(document).ready(function(){
     $(document).on("click", "table button.btn_id", function(){
         let id_of_button = (event.srcElement.id);
         let odontologoId = id_of_button.split("_")[2];
-
+  
         $.ajax({
             url: '/odontologos/' + odontologoId,
             type: 'GET',
             success: function(response) {
-                let odontologo = response;
+                let odontologo = response;                
                 $("#odontologo_id").val(odontologo.id);
                 $("#nombre").val(odontologo.nombre);
                 $("#apellido").val(odontologo.apellido);
@@ -71,6 +71,6 @@ $(document).ready(function(){
                 console.log(error);
                 alert("Error -> " + error);
             }
-        });
+        });        
     });
 });

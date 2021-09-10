@@ -7,6 +7,10 @@ public class Odontologo {
     private String apellido;
     private Integer matricula;
 
+    public Odontologo() {
+
+    }
+
     public Odontologo(String nombre, String apellido, Integer matricula) {
         this.nombre = nombre;
         this.apellido = apellido;

@@ -1,10 +1,10 @@
 package com.ti.sistemareservaturnos.controller;
 
-import com.ti.sistemareservaturnos.dao.impl.DomicilioDaoH2;
-import com.ti.sistemareservaturnos.dao.impl.OdontologoDaoH2;
-import com.ti.sistemareservaturnos.dao.impl.PacienteDaoH2;
-import com.ti.sistemareservaturnos.dao.impl.TurnoListRepository;
 import com.ti.sistemareservaturnos.model.Turno;
+import com.ti.sistemareservaturnos.repository.impl.DomicilioDaoH2;
+import com.ti.sistemareservaturnos.repository.impl.OdontologoDaoH2;
+import com.ti.sistemareservaturnos.repository.impl.PacienteDaoH2;
+import com.ti.sistemareservaturnos.repository.impl.TurnoListRepository;
 import com.ti.sistemareservaturnos.service.OdontologoService;
 import com.ti.sistemareservaturnos.service.PacienteService;
 import com.ti.sistemareservaturnos.service.TurnoService;
@@ -16,8 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/turnos")
-public class turnoController {
-
+public class TurnoController {
     private TurnoService turnoService = new TurnoService(new TurnoListRepository());
     private PacienteService pacienteService = new PacienteService(new PacienteDaoH2(new DomicilioDaoH2()));
     private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
@@ -31,12 +30,15 @@ public class turnoController {
         else
             response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         return response;
+
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<List<Turno>> listar() {
         return ResponseEntity.ok(turnoService.listar());
     }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) {
@@ -53,5 +55,6 @@ public class turnoController {
     @PutMapping("/{id}")
     public ResponseEntity<Turno> actualizarTurno(@RequestBody Turno turno) {
         return ResponseEntity.ok(turnoService.actualizar(turno));
+
     }
 }

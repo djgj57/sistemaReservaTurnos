@@ -1,8 +1,7 @@
 package com.ti.sistemareservaturnos;
 
-
-import com.ti.sistemareservaturnos.dao.impl.DomicilioDaoH2;
-import com.ti.sistemareservaturnos.dao.impl.PacienteDaoH2;
+import com.ti.sistemareservaturnos.repository.impl.DomicilioDaoH2;
+import com.ti.sistemareservaturnos.repository.impl.PacienteDaoH2;
 import com.ti.sistemareservaturnos.model.Domicilio;
 import com.ti.sistemareservaturnos.model.Paciente;
 import com.ti.sistemareservaturnos.service.DomicilioService;

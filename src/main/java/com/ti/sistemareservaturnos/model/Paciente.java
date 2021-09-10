@@ -1,5 +1,4 @@
 package com.ti.sistemareservaturnos.model;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
@@ -9,7 +8,7 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private String dni;
-    private Date fechaIngreso;
+    private Date fechaIngreso; /*"2021-09-08"*/
     private Domicilio domicilio;
 
     public Paciente() {

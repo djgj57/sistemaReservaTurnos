@@ -1,13 +1,14 @@
-package com.ti.sistemareservaturnos.dao.impl;
+package com.ti.sistemareservaturnos.repository.impl;
 
-import com.ti.sistemareservaturnos.dao.IDao;
 import com.ti.sistemareservaturnos.model.Turno;
+import com.ti.sistemareservaturnos.repository.IDao;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class TurnoListRepository implements IDao<Turno> {
+
     private List<Turno> turnos;
 
     public TurnoListRepository() {
@@ -41,4 +42,5 @@ public class TurnoListRepository implements IDao<Turno> {
         turnos.add(turno);
         return turno;
     }
+
 }

@@ -1,8 +1,8 @@
-package com.ti.sistemareservaturnos.dao.impl;
+package com.ti.sistemareservaturnos.repository.impl;
 
-import com.ti.sistemareservaturnos.dao.IDao;
-import com.ti.sistemareservaturnos.dao.configuracion.ConfiguracionJDBC;
 import com.ti.sistemareservaturnos.model.Odontologo;
+import com.ti.sistemareservaturnos.repository.IDao;
+import com.ti.sistemareservaturnos.repository.configuracion.ConfiguracionJDBC;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -28,7 +28,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
     @Override
     public Odontologo guardar(Odontologo odontologo) {
-        log.debug("Registrando nuevo odontologo : " + odontologo.toString());
+        log.debug("Registrando nuevo odontologo : "+ odontologo.toString());
         Connection connection = configuracionJDBC.conectarConBaseDeDatos();
         Statement stmt = null;
         String query = String.format("INSERT INTO odontologos(nombre,apellido,matricula) VALUES('%s','%s','%s')", odontologo.getNombre(), odontologo.getApellido(),
@@ -50,7 +50,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
     @Override
     public Optional<Odontologo> buscar(Integer id) {
-        log.debug("Buscando odontologo con id : " + id);
+        log.debug("Buscando odontologo con id : "+id);
         Connection connection = configuracionJDBC.conectarConBaseDeDatos();
         Statement stmt = null;
         String query = String.format("SELECT id,nombre,apellido,matricula FROM odontologos where id = '%s'", id);
@@ -72,7 +72,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
     @Override
     public void eliminar(Integer id) {
-        log.debug("Borrando odontologo con id : " + id);
+        log.debug("Borrando odontologo con id : "+id);
         Connection connection = configuracionJDBC.conectarConBaseDeDatos();
         Statement stmt = null;
         String query = String.format("DELETE FROM odontologos where id = %s", id);
@@ -117,7 +117,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
         Connection connection = configuracionJDBC.conectarConBaseDeDatos();
 
         String query = String.format("UPDATE odontologos SET nombre = '%s', apellido = '%s',matricula = '%s'  WHERE id = '%s'",
-                odontologo.getNombre(), odontologo.getApellido(), odontologo.getMatricula(), odontologo.getId());
+                odontologo.getNombre(),odontologo.getApellido(),odontologo.getMatricula(),odontologo.getId());
         execute(connection, query);
         return odontologo;
     }

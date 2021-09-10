@@ -1,13 +1,13 @@
 package com.ti.sistemareservaturnos.controller;
 
-
-import com.ti.sistemareservaturnos.dao.impl.DomicilioDaoH2;
-import com.ti.sistemareservaturnos.dao.impl.PacienteDaoH2;
 import com.ti.sistemareservaturnos.model.Paciente;
+import com.ti.sistemareservaturnos.repository.impl.DomicilioDaoH2;
+import com.ti.sistemareservaturnos.repository.impl.PacienteDaoH2;
 import com.ti.sistemareservaturnos.service.PacienteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -27,7 +27,7 @@ public class PacienteController  {
         return  ResponseEntity.ok(paciente);
     }
 
-    @PutMapping("/actualizar")
+    @PutMapping()
     public ResponseEntity<Paciente> actualizar(@RequestBody Paciente paciente) {
         ResponseEntity<Paciente> response = null;
 
@@ -35,6 +35,7 @@ public class PacienteController  {
             response = ResponseEntity.ok(pacienteService.actualizar(paciente));
         else
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
         return response;
     }
 
@@ -48,13 +49,13 @@ public class PacienteController  {
         } else {
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+
         return response;
     }
 
     @GetMapping
     public ResponseEntity<List<Paciente>> buscarTodos(){
         return ResponseEntity.ok(pacienteService.buscarTodos());
-
     }
 
 

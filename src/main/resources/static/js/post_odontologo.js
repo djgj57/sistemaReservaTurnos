@@ -19,18 +19,18 @@ $(document).ready(function() {
                 let odontologo = response
                 console.log(response)
                 let successAlert = '<div class="alert alert-success alert-dismissible">' +
-                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                    '<strong></strong> odontologo agregado </div>'
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<strong></strong> odontologo agregado </div>'
                 $('#response').append(successAlert);
                 $('#response').css({"display":"block"});
                 resetUploadForm();
             },
-            error: function(response) {
-                let successAlert = '<div class="alert alert-danger alert-dismissible">' +
+                error: function(response) {
+                    let successAlert = '<div class="alert alert-danger alert-dismissible">' +
                     '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
                     '<strong> Error intente nuevamente</strong> </div>'
                 resetUploadForm();
-            }
+                }
         });
 
     });
@@ -45,7 +45,7 @@ $(document).ready(function() {
         if(pathname === "/"){
             $(".nav .nav-item a:first").addClass("active");
         } else if (pathname == "/odontologos.html"){
-            $(".nav .nav-item a:last").addClass("active");
+             $(".nav .nav-item a:last").addClass("active");
         }
     });
 

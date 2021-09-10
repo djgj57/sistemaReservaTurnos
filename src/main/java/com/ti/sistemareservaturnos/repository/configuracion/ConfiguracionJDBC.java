@@ -1,4 +1,4 @@
-package com.ti.sistemareservaturnos.dao.configuracion;
+package com.ti.sistemareservaturnos.repository.configuracion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ public class ConfiguracionJDBC {
 
     public ConfiguracionJDBC() {
         this.jdbcDriver = "org.h2.Driver";
-        this.dbUrl = "jdbc:h2:mem:clinica;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'create.sql'";
+        this.dbUrl = "jdbc:h2:mem:srt;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'create.sql'";
         this.nombreUsuario = "sa";
         this.contrasenaUsuario = "sa";
     }
