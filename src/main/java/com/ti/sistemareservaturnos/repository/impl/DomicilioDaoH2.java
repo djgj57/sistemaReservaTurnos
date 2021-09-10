@@ -3,6 +3,7 @@ package com.ti.sistemareservaturnos.repository.impl;
 import com.ti.sistemareservaturnos.model.Domicilio;
 import com.ti.sistemareservaturnos.repository.IDao;
 import com.ti.sistemareservaturnos.repository.configuracion.ConfiguracionJDBC;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class DomicilioDaoH2 implements IDao<Domicilio> {
     private ConfiguracionJDBC configuracionJDBC;
 

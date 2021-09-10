@@ -6,6 +6,7 @@ import com.ti.sistemareservaturnos.repository.IDao;
 import com.ti.sistemareservaturnos.repository.configuracion.ConfiguracionJDBC;
 import com.ti.sistemareservaturnos.util.Util;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class PacienteDaoH2 implements IDao<Paciente> {
 
     private ConfiguracionJDBC configuracionJDBC;

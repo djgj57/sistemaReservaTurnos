@@ -2,12 +2,13 @@ package com.ti.sistemareservaturnos.service;
 
 import com.ti.sistemareservaturnos.model.Paciente;
 import com.ti.sistemareservaturnos.repository.IDao;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-
+@Service
 public class PacienteService {
 
     private IDao<Paciente> pacienteIDao;

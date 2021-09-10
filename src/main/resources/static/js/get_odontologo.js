@@ -2,7 +2,7 @@ $(document).ready(function(){
     (function(){
         $.ajax({
             type : "GET",
-            url : "/odontologos",
+            url : "/odontologos/",
             success: function(response){
               $.each(response, (i, odontologo) => {  
 

@@ -8,6 +8,7 @@ import com.ti.sistemareservaturnos.repository.impl.TurnoListRepository;
 import com.ti.sistemareservaturnos.service.OdontologoService;
 import com.ti.sistemareservaturnos.service.PacienteService;
 import com.ti.sistemareservaturnos.service.TurnoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +18,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
-    private TurnoService turnoService = new TurnoService(new TurnoListRepository());
-    private PacienteService pacienteService = new PacienteService(new PacienteDaoH2(new DomicilioDaoH2()));
-    private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
+
+    @Autowired
+    private TurnoService turnoService;
+    @Autowired
+    private PacienteService pacienteService;
+    @Autowired
+    private OdontologoService odontologoService;
+
+//    private TurnoService turnoService = new TurnoService(new TurnoListRepository());
+//    private PacienteService pacienteService = new PacienteService(new PacienteDaoH2(new DomicilioDaoH2()));
+//    private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
 
     @PostMapping("/registrar")
     public ResponseEntity<Turno> registrarTurno(@RequestBody Turno turno) {

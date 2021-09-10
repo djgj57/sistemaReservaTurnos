@@ -4,6 +4,7 @@ package com.ti.sistemareservaturnos.controller;
 import com.ti.sistemareservaturnos.repository.impl.OdontologoDaoH2;
 import com.ti.sistemareservaturnos.service.OdontologoService;
 import com.ti.sistemareservaturnos.model.Odontologo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,11 @@ import java.util.List;
 @RequestMapping("/odontologos")
 
 public class OdontologoController {
-    private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
+
+    @Autowired
+    private OdontologoService odontologoService;
+
+//    private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
 
     @PostMapping("/registrar")
     public ResponseEntity<Odontologo> registrarOdontologo(@RequestBody Odontologo odontologo) {

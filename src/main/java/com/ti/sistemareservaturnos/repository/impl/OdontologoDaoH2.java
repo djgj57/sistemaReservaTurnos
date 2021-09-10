@@ -4,6 +4,7 @@ import com.ti.sistemareservaturnos.model.Odontologo;
 import com.ti.sistemareservaturnos.repository.IDao;
 import com.ti.sistemareservaturnos.repository.configuracion.ConfiguracionJDBC;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class OdontologoDaoH2 implements IDao<Odontologo> {
 
     private ConfiguracionJDBC configuracionJDBC;

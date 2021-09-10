@@ -4,6 +4,7 @@ import com.ti.sistemareservaturnos.model.Paciente;
 import com.ti.sistemareservaturnos.repository.impl.DomicilioDaoH2;
 import com.ti.sistemareservaturnos.repository.impl.PacienteDaoH2;
 import com.ti.sistemareservaturnos.service.PacienteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,9 @@ import java.util.List;
 @RequestMapping("/pacientes")
 public class PacienteController  {
 
-    private PacienteService pacienteService = new PacienteService(new PacienteDaoH2(new DomicilioDaoH2()));
+   @Autowired
+    private PacienteService pacienteService;
+//    private PacienteService pacienteService = new PacienteService(new PacienteDaoH2(new DomicilioDaoH2()));
 
     @PostMapping("/registrar")
     public ResponseEntity<Paciente> registrarPaciente(@RequestBody Paciente paciente){

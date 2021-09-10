@@ -101,3 +101,19 @@
 [2021-09-0920:23:04] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
 [2021-09-0920:23:11] [ DEBUG] [OdontologoDaoH2:31] Registrando nuevo odontologo : Odontologo{id=null, nombre='s', apellido='jobs', matricula=333}
 [2021-09-0920:23:14] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:32:27] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:32:51] [ DEBUG] [OdontologoDaoH2:31] Registrando nuevo odontologo : Odontologo{id=null, nombre='JAVIER', apellido='Perez', matricula=10}
+[2021-09-1014:32:53] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:35:54] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:36:05] [ DEBUG] [OdontologoDaoH2:31] Registrando nuevo odontologo : Odontologo{id=null, nombre='Javier', apellido='lopezq', matricula=12}
+[2021-09-1014:36:06] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:42:48] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:42:51] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:42:58] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:43:50] [ DEBUG] [OdontologoDaoH2:31] Registrando nuevo odontologo : Odontologo{id=null, nombre='angel', apellido='vargas', matricula=3}
+[2021-09-1014:44:12] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:44:28] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:44:35] [ DEBUG] [OdontologoDaoH2:92] Buscando todos los odontologos
+[2021-09-1014:58:31] [ DEBUG] [OdontologoDaoH2:94] Buscando todos los odontologos
+[2021-09-1014:58:42] [ DEBUG] [OdontologoDaoH2:33] Registrando nuevo odontologo : Odontologo{id=null, nombre='Jose', apellido='lopez', matricula=5}
+[2021-09-1014:58:46] [ DEBUG] [OdontologoDaoH2:94] Buscando todos los odontologos

@@ -1,10 +1,13 @@
 package com.ti.sistemareservaturnos.service;
 import com.ti.sistemareservaturnos.model.Turno;
 import com.ti.sistemareservaturnos.repository.IDao;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class TurnoService {
     private IDao<Turno> turnoRepository;
 
