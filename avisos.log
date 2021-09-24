@@ -155,3 +155,22 @@
 [2021-09-1310:46:29] [ DEBUG] [OdontologoDaoH2:94] Buscando todos los odontologos
 [2021-09-1310:46:34] [ DEBUG] [OdontologoDaoH2:94] Buscando todos los odontologos
 [2021-09-1310:46:37] [ DEBUG] [OdontologoDaoH2:94] Buscando todos los odontologos
+[2021-09-1310:49:48] [ DEBUG] [OdontologoDaoH2:33] Registrando nuevo odontologo : Odontologo{id=null, nombre='Santiago', apellido='Paz', matricula=3455647}
+[2021-09-1310:49:49] [ DEBUG] [OdontologoDaoH2:77] Borrando odontologo con id : 1
+[2021-09-1310:49:49] [ DEBUG] [OdontologoDaoH2:55] Buscando odontologo con id : 1
+[2021-09-1310:49:49] [ DEBUG] [OdontologoDaoH2:33] Registrando nuevo odontologo : Odontologo{id=null, nombre='Juan', apellido='Ramirez', matricula=348971960}
+[2021-09-1310:49:49] [ DEBUG] [OdontologoDaoH2:94] Buscando todos los odontologos
+[2021-09-1310:50:01] [ DEBUG] [PacienteDaoH2:34] Registrando paciente : Paciente{id=null, nombre='Santiago', apellido='Paz', dni='88888888', fechaIngreso=Mon Sep 13 10:50:01 COT 2021, domicilio=Domicilio{id=null, calle='Av Santa fe', numero='444', localidad='CABA', provincia='Buenos Aires'}}
+[2021-09-1310:50:01] [ DEBUG] [PacienteDaoH2:34] Registrando paciente : Paciente{id=null, nombre='Micaela', apellido='Perez', dni='99999999', fechaIngreso=Mon Sep 13 10:50:01 COT 2021, domicilio=Domicilio{id=1, calle='Av Santa fe', numero='444', localidad='CABA', provincia='Buenos Aires'}}
+[2021-09-1310:50:01] [ DEBUG] [PacienteDaoH2:34] Registrando paciente : Paciente{id=null, nombre='Tomas', apellido='Pereyra', dni='12345678', fechaIngreso=Mon Sep 13 10:50:01 COT 2021, domicilio=Domicilio{id=null, calle='Calle', numero='123', localidad='Temperley', provincia='Buenos Aires'}}
+[2021-09-1310:50:01] [ DEBUG] [PacienteDaoH2:55] Buscando paciente con id  : 3
+[2021-09-1310:50:01] [ DEBUG] [PacienteDaoH2:78] Eliminando paciente con id  : 3
+[2021-09-1310:50:01] [ DEBUG] [PacienteDaoH2:55] Buscando paciente con id  : 3
+[2021-09-1310:50:01] [ DEBUG] [PacienteDaoH2:87] Buscando todos los pacientes
+[2021-09-1610:10:22] [ DEBUG] [PacienteDaoH2:34] Registrando paciente : Paciente{id=null, nombre='Santiago', apellido='Paz', dni='88888888', fechaIngreso=Thu Sep 16 10:10:22 COT 2021, domicilio=Domicilio{id=null, calle='Av Santa fe', numero='444', localidad='CABA', provincia='Buenos Aires'}}
+[2021-09-1610:10:22] [ DEBUG] [PacienteDaoH2:34] Registrando paciente : Paciente{id=null, nombre='Micaela', apellido='Perez', dni='99999999', fechaIngreso=Thu Sep 16 10:10:22 COT 2021, domicilio=Domicilio{id=1, calle='Av Santa fe', numero='444', localidad='CABA', provincia='Buenos Aires'}}
+[2021-09-1610:10:22] [ DEBUG] [PacienteDaoH2:34] Registrando paciente : Paciente{id=null, nombre='Tomas', apellido='Pereyra', dni='12345678', fechaIngreso=Thu Sep 16 10:10:22 COT 2021, domicilio=Domicilio{id=null, calle='Calle', numero='123', localidad='Temperley', provincia='Buenos Aires'}}
+[2021-09-1610:10:22] [ DEBUG] [PacienteDaoH2:55] Buscando paciente con id  : 3
+[2021-09-1610:10:22] [ DEBUG] [PacienteDaoH2:78] Eliminando paciente con id  : 3
+[2021-09-1610:10:22] [ DEBUG] [PacienteDaoH2:55] Buscando paciente con id  : 3
+[2021-09-1610:10:22] [ DEBUG] [PacienteDaoH2:87] Buscando todos los pacientes

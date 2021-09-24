@@ -1,13 +1,10 @@
 package com.ti.sistemareservaturnos.controller;
 
+
 import com.ti.sistemareservaturnos.model.Turno;
-import com.ti.sistemareservaturnos.repository.impl.DomicilioDaoH2;
-import com.ti.sistemareservaturnos.repository.impl.OdontologoDaoH2;
-import com.ti.sistemareservaturnos.repository.impl.PacienteDaoH2;
-import com.ti.sistemareservaturnos.repository.impl.TurnoListRepository;
-import com.ti.sistemareservaturnos.service.OdontologoService;
-import com.ti.sistemareservaturnos.service.PacienteService;
-import com.ti.sistemareservaturnos.service.TurnoService;
+import com.ti.sistemareservaturnos.service.impl.OdontologoService;
+import com.ti.sistemareservaturnos.service.impl.PacienteService;
+import com.ti.sistemareservaturnos.service.impl.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,27 +12,28 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
 
-    @Autowired
-    private TurnoService turnoService;
-    @Autowired
-    private PacienteService pacienteService;
-    @Autowired
-    private OdontologoService odontologoService;
+    private final TurnoService turnoService;
+    private final PacienteService pacienteService;
+    private final OdontologoService odontologoService;
 
-//    private TurnoService turnoService = new TurnoService(new TurnoListRepository());
-//    private PacienteService pacienteService = new PacienteService(new PacienteDaoH2(new DomicilioDaoH2()));
-//    private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
+    @Autowired
+    public TurnoController(TurnoService turnoService, PacienteService pacienteService, OdontologoService odontologoService) {
+        this.turnoService = turnoService;
+        this.pacienteService = pacienteService;
+        this.odontologoService = odontologoService;
+    }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Turno> registrarTurno(@RequestBody Turno turno) {
+    public ResponseEntity<Turno> saveTurno(@RequestBody Turno turno) {
         ResponseEntity<Turno> response;
 
-        if (pacienteService.buscar(turno.getPaciente().getId()).isPresent() && odontologoService.buscar(turno.getOdontologo().getId()).isPresent())
-            response = ResponseEntity.ok(turnoService.registrarTurno(turno));
+        if (pacienteService.findById(turno.getPaciente().getId()).isPresent() && odontologoService.findById(turno.getOdontologo().getId()).isPresent())
+            response = ResponseEntity.ok(turnoService.save(turno));
         else
             response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         return response;
@@ -43,17 +41,22 @@ public class TurnoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<Turno>> listar() {
-        return ResponseEntity.ok(turnoService.listar());
+    public ResponseEntity<Turno> findByIdTurno(@PathVariable Long id){
+        Turno turno = turnoService.findById(id).orElse(null);
+        return  ResponseEntity.ok(turno);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Turno> updateTurno(@RequestBody Turno turno) {
+        return ResponseEntity.ok(turnoService.update(turno));
 
+    }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Integer id) {
+    public ResponseEntity<String> deleteTurno(@PathVariable Long id) {
         ResponseEntity<String> response;
-        if (turnoService.buscar(id).isPresent()) { // Esta validacion no esta en el enunciado del ejericio, pero se las dejo para que la tengan.
-            turnoService.eliminar(id);
+        if (turnoService.findById(id).isPresent()) {
+            turnoService.delete(id);
             response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminado");
         } else {
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -61,9 +64,8 @@ public class TurnoController {
         return response;
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Turno> actualizarTurno(@RequestBody Turno turno) {
-        return ResponseEntity.ok(turnoService.actualizar(turno));
-
+    @GetMapping
+    public ResponseEntity<List<Turno>> findAllTurnos() {
+        return ResponseEntity.ok(turnoService.findAll());
     }
 }

@@ -1,54 +1,29 @@
 package com.ti.sistemareservaturnos.model;
-import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+
+@Entity
+@Table
+@Getter
+@Setter
 public class Turno {
-    private Integer id;
-    private Paciente paciente;
+    @Id
+    @GeneratedValue
+    private Long id;
+    private LocalDate fechaTurno;
+    private LocalTime horaTurno;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "odontologo_id", nullable = false)
     private Odontologo odontologo;
-    private Date date; /*2021-09-10*/
 
-    public Turno() {
-    }
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "paciente_id", nullable = false)
+    private Paciente paciente;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public Odontologo getOdontologo() {
-        return odontologo;
-    }
-
-    public void setOdontologo(Odontologo odontologo) {
-        this.odontologo = odontologo;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "Turno{" +
-                "id=" + id +
-                ", paciente=" + paciente +
-                ", odontologo=" + odontologo +
-                ", date=" + date +
-                '}';
-    }
 }
