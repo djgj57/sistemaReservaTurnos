@@ -7,12 +7,13 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table
+@Table (name = "odontologos")
 @Getter
 @Setter
 public class Odontologo {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "odontologo_sequence")
+    @SequenceGenerator(name = "odontologo_sequence", sequenceName = "odontologo_sequence")
     private Long id;
     private String nombre;
     private String apellido;
@@ -20,6 +21,18 @@ public class Odontologo {
 
     @OneToMany(mappedBy = "odontologo")
     private Set<Turno> turnos;
+
+    public Odontologo(Long id, String nombre, String apellido, Integer matricula, Set<Turno> turnos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.matricula = matricula;
+        this.turnos = turnos;
+    }
+
+    public Odontologo() {
+
+    }
 
     @Override
     public String toString() {

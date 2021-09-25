@@ -1,21 +1,29 @@
 package com.ti.sistemareservaturnos.controller;
 
 
+import com.ti.sistemareservaturnos.model.Domicilio;
+import com.ti.sistemareservaturnos.model.Odontologo;
+import com.ti.sistemareservaturnos.model.Paciente;
 import com.ti.sistemareservaturnos.model.Turno;
 import com.ti.sistemareservaturnos.service.impl.OdontologoService;
 import com.ti.sistemareservaturnos.service.impl.PacienteService;
 import com.ti.sistemareservaturnos.service.impl.TurnoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
+
+    final static Logger log = Logger.getLogger(TurnoController.class);
 
     private final TurnoService turnoService;
     private final PacienteService pacienteService;
@@ -35,6 +43,7 @@ public class TurnoController {
         if (pacienteService.findById(turno.getPaciente().getId()).isPresent() && odontologoService.findById(turno.getOdontologo().getId()).isPresent())
             response = ResponseEntity.ok(turnoService.save(turno));
         else
+            log.debug("No es posible encontrar al odontolo/paciente...");
             response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         return response;
 
@@ -46,7 +55,7 @@ public class TurnoController {
         return  ResponseEntity.ok(turno);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping()
     public ResponseEntity<Turno> updateTurno(@RequestBody Turno turno) {
         return ResponseEntity.ok(turnoService.update(turno));
 
@@ -68,4 +77,20 @@ public class TurnoController {
     public ResponseEntity<List<Turno>> findAllTurnos() {
         return ResponseEntity.ok(turnoService.findAll());
     }
+
+    /*Solo para test*/
+
+    @PostMapping("/test")
+    public Turno testTurno(){
+        Domicilio domicilioTest = new Domicilio(null ,"falsa","123","lalocalidad", "laprovincia");
+        Paciente pacienteTest = new Paciente(null, "mario", "casas","dni123", LocalDate.of(2021,
+                2,12), domicilioTest, null);
+        pacienteService.save(pacienteTest);
+        Odontologo odontologoTest = new Odontologo(null, "Mario", "lopez", 453, null);
+        odontologoService.save(odontologoTest);
+        Turno turnoTest = new Turno(null, LocalDate.of(2021, 3, 3), LocalTime.of(9, 30),
+                odontologoTest,pacienteTest);
+        return turnoService.save(turnoTest);
+    }
+
 }

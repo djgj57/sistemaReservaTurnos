@@ -8,12 +8,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table
+@Table (name = "pacientes")
 @Getter
 @Setter
 public class Paciente {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paciente_sequence")
+    @SequenceGenerator(name = "paciente_sequence", sequenceName = "paciente_sequence")
     private Long id;
     private String nombre;
     private String apellido;
@@ -26,6 +27,20 @@ public class Paciente {
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
     private List<Turno> turnos;
+
+    public Paciente(Long id, String nombre, String apellido, String dni, LocalDate fechaIngreso, Domicilio domicilio, List<Turno> turnos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.fechaIngreso = fechaIngreso;
+        this.domicilio = domicilio;
+        this.turnos = turnos;
+    }
+
+    public Paciente() {
+
+    }
 
     @Override
     public String toString() {

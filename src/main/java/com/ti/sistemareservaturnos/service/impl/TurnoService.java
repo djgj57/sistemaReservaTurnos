@@ -5,6 +5,7 @@ package com.ti.sistemareservaturnos.service.impl;
 import com.ti.sistemareservaturnos.model.Turno;
 import com.ti.sistemareservaturnos.repository.impl.ITurnoRepository;
 import com.ti.sistemareservaturnos.service.contracts.IEntityService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,9 @@ import java.util.Optional;
 @Service
 public class TurnoService implements IEntityService<Turno> {
 
-    private ITurnoRepository turnoRepository;
+    final static Logger log = Logger.getLogger(TurnoService.class);
+
+    private final ITurnoRepository turnoRepository;
 
     @Autowired
     public TurnoService(ITurnoRepository turnoRepository) {
@@ -23,16 +26,19 @@ public class TurnoService implements IEntityService<Turno> {
 
     @Override
     public Turno save(Turno turno) {
+        log.info("Guardando un turno...");
         return turnoRepository.save(turno);
     }
 
     @Override
     public Optional<Turno> findById(Long id) {
+        log.info("Buscando un turno...");
         return turnoRepository.findById(id);
     }
 
     @Override
     public List<Turno> findAll() {
+        log.info("Buscando todos los turnos...");
         return turnoRepository.findAll();
     }
 
@@ -49,12 +55,14 @@ public class TurnoService implements IEntityService<Turno> {
 
     @Override
     public Turno update(Turno turno) {
+        log.info("actualizando un turno...");
         return turnoRepository.save(turno);
     }
 
     @Override
     public void delete(Long id) {
         if (turnoRepository.findById(id).isPresent()) {
+            log.info("Eliminando un turno...");
             turnoRepository.deleteById(id);
             System.out.println("Eliminado con exito!");
         } else {
