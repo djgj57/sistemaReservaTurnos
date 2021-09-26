@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title>Paciente</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/get_paciente.js"></script>
-    <script type="text/javascript" src="/js/put_paciente.js"></script>
-    <script type="text/javascript" src="/js/delete_paciente.js"></script>
+<title>Paciente</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/get_paciente.js"></script>
+<script type="text/javascript" src="/js/update_paciente.js"></script>
+<script type="text/javascript" src="/js/delete_paciente.js"></script>
 </head>
+
 <body>
 <div class="container">
     <ul class="nav nav-pills">
@@ -19,7 +17,7 @@
             <a class="nav-link" href="/alta-pacientes.html">Agregar nuevo</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/pacientes.html/">Todos</a>
+            <a class="nav-link" href="/pacientes.html">Todos</a>
         </li>
     </ul>
 
@@ -44,30 +42,51 @@
     </div>
     <div class="row">
         <div class="col-sm-6" style="display: none;
-											background-color:#e6fffa; padding:10px; border-radius:3px"
-             id="div_paciente_updating">
+											background-color:#e6fffa; padding:10px; border-radius:3px" id="div_paciente_updating">
             <form id="update_paciente_form">
                 <div class="form-group">
-                    <label >Id:</label>
+                    <label>Id:</label>
                     <input type="text" class="form-control" id="paciente_id" readonly>
                 </div>
                 <div class="form-group">
-                    <label >Nombre:</label>
+                    <label>Nombre:</label>
                     <input type="text" class="form-control" placeholder="Nombre" id="nombre">
                 </div>
                 <div class="form-group">
-                    <label >Apellido:</label>
+                    <label>Apellido:</label>
                     <input type="text" class="form-control" placeholder="Apellido" id="apellido">
                 </div>
                 <div class="form-group">
-                    <label >DNI:</label>
+                    <label>DNI:</label>
                     <input type="text" class="form-control" placeholder="dni" id="dni">
                 </div>
                 <div class="form-group">
-                    <label >Fecha de Ingreso:</label>
-                    <input type="date" class="form-control" placeholder="fechaingreso"
-                           id="fechaingreso">
+                    <label>Fecha de Ingreso:</label>
+                    <input type="date" class="form-control" placeholder="fechaingreso" id="fechaingreso">
                 </div>
+                <div class="form-group">
+                    <label>Id domicilio:</label>
+                    <input type="text" class="form-control" id="domicilio_id" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Calle:</label>
+                    <input type="text" class="form-control" placeholder="calle" id="calle">
+                </div>
+                <div class="form-group">
+                    <label>Numero:</label>
+                    <input type="text" class="form-control" placeholder="numero" id="numero">
+                </div>
+                <div class="form-group">
+                    <label>Localidad:</label>
+                    <input type="text" class="form-control" placeholder="localidad" id="localidad">
+                </div>
+                <div class="form-group">
+                    <label>Provincia:</label>
+                    <input type="text" class="form-control" placeholder="provincia" id="provincia">
+                </div>
+
+
+
 
 
                 <button type="submit" class="btn btn-primary">Modificar</button>
@@ -79,4 +98,5 @@
     <hr>
 </div>
 </body>
+
 </html>

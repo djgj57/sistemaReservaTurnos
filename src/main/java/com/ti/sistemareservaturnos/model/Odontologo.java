@@ -1,5 +1,6 @@
 package com.ti.sistemareservaturnos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class Odontologo {
     private Integer matricula;
 
     @OneToMany(mappedBy = "odontologo")
+    @JsonIgnore
     private Set<Turno> turnos;
 
     public Odontologo(Long id, String nombre, String apellido, Integer matricula, Set<Turno> turnos) {

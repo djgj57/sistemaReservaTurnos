@@ -13,7 +13,8 @@ window.addEventListener('load', function () {
 
                     let deleteButton = '<button' +
                         ' id=' + '\"' + 'btn_delete_' + paciente.id + '\"' +
-                        ' type="button" onclick="deleteBy('+paciente.id+')" class="btn btn-danger' +
+                        ' type="button" onclick="deleteBy('+paciente.id+')" class="btn' +
+                        ' btn-danger' +
                         ' btn_delete">' +
                         '&times' +
                         '</button>';
