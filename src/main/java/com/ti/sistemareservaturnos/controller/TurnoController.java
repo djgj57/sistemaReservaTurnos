@@ -40,19 +40,20 @@ public class TurnoController {
     public ResponseEntity<Turno> saveTurno(@RequestBody Turno turno) {
         ResponseEntity<Turno> response;
 
-        if (pacienteService.findById(turno.getPaciente().getId()).isPresent() && odontologoService.findById(turno.getOdontologo().getId()).isPresent())
+        if (pacienteService.findById(turno.getPaciente().getId()).isPresent() && odontologoService.findById(turno.getOdontologo().getId()).isPresent()) {
             response = ResponseEntity.ok(turnoService.save(turno));
-        else
+        } else {
             log.debug("No es posible encontrar al odontolo/paciente...");
             response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
         return response;
 
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Turno> findByIdTurno(@PathVariable Long id){
+    public ResponseEntity<Turno> findByIdTurno(@PathVariable Long id) {
         Turno turno = turnoService.findById(id).orElse(null);
-        return  ResponseEntity.ok(turno);
+        return ResponseEntity.ok(turno);
     }
 
     @PutMapping()
@@ -81,15 +82,15 @@ public class TurnoController {
     /*Solo para test*/
 
     @PostMapping("/test")
-    public Turno testTurno(){
-        Domicilio domicilioTest = new Domicilio(null ,"falsa","123","lalocalidad", "laprovincia");
-        Paciente pacienteTest = new Paciente(null, "mario", "casas","dni123", LocalDate.of(2021,
-                2,12), domicilioTest, null);
+    public Turno testTurno() {
+        Domicilio domicilioTest = new Domicilio(null, "falsa", "123", "lalocalidad", "laprovincia");
+        Paciente pacienteTest = new Paciente(null, "mario", "casas", "dni123", LocalDate.of(2021,
+                2, 12), domicilioTest, null);
         pacienteService.save(pacienteTest);
         Odontologo odontologoTest = new Odontologo(null, "Mario", "lopez", 453, null);
         odontologoService.save(odontologoTest);
         Turno turnoTest = new Turno(null, LocalDate.of(2021, 3, 3), LocalTime.of(9, 30),
-                odontologoTest,pacienteTest);
+                odontologoTest, pacienteTest);
         return turnoService.save(turnoTest);
     }
 
