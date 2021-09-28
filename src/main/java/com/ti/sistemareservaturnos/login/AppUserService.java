@@ -9,16 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class AppUserService implements UserDetailsService {
 
-    private final IUserRepository userRepository;
-
     @Autowired
-    public AppUserService(IUserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private IUserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("User " +
-                "email not found"));
+        return userRepository.findByEmail(email).orElseThrow((()-> new UsernameNotFoundException(
+                "User " +
+                "email not found")));
     }
 }
