@@ -1,6 +1,5 @@
 window.addEventListener('load', () => {
 
-    //Todos los toDo - Se piden todas las tareas a la API https://ctd-todo-api.herokuapp.com/
 
     const urlTraertodos = '/turnos';
 
